@@ -19,7 +19,7 @@ public class Balle extends Component {
     @Override
     public void run(){
         super.run();
-        this.setVitesseY(-300);
+        this.setVitesseY(-500);
     }
 
     @Override

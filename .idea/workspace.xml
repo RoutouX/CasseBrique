@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="748e4330-40a0-4147-9e92-e7472d2fdb24" name="Changes" comment="First Commit">
-      <change afterPath="$PROJECT_DIR$/src/PackPhysique/Component/ComponentThread/ThreadDeplacementRaquette.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PackPhysique/Component/Raquette.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="748e4330-40a0-4147-9e92-e7472d2fdb24" name="Changes" comment="StableV1">
+      <change afterPath="$PROJECT_DIR$/src/PackGraphique/Resource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PackGraphique/ResourceBackGround.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PackGraphique/ResourceBall.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PackGraphique/ResourceBrique.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PackGraphique/ResourceRaquette.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPack/RunGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPack/RunGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackGraphique/FenetreJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackGraphique/FenetreJFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PackGraphique/GraphicsJPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackGraphique/GraphicsJPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackGraphique/MoteurGraphique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackGraphique/MoteurGraphique.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PackPhysique/Component/Balle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Component/Balle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackPhysique/Component/Brique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Component/Brique.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackPhysique/Component/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Component/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackPhysique/Component/ComponentThread/ThreadComponentTakeMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Component/ComponentThread/ThreadComponentTakeMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackPhysique/Component/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Component/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackPhysique/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackPhysique/MoteurPhysique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/MoteurPhysique.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +54,7 @@
       <recent name="$PROJECT_DIR$/src/PackPhysique/Component/ComponentThread" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="PackGraphique" />
       <recent name="PackPhysique.Component" />
     </key>
   </component>
@@ -84,8 +78,17 @@
       <workItem from="1662388414400" duration="4379000" />
       <workItem from="1662448028861" duration="3218000" />
       <workItem from="1662474249029" duration="452000" />
-      <workItem from="1662475230621" duration="11215000" />
+      <workItem from="1662475230621" duration="14249000" />
+      <workItem from="1662498345809" duration="265000" />
     </task>
+    <task id="LOCAL-00001" summary="StableV1">
+      <created>1662495266992</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662495266992</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +107,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
+    <MESSAGE value="StableV1" />
+    <option name="LAST_COMMIT_MESSAGE" value="StableV1" />
   </component>
 </project>
