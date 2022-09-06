@@ -11,14 +11,10 @@ public class RunGame extends Thread{
     public RunGame() {
         moteurPhysique = new MoteurPhysique(this);
         moteurGraphique = new MoteurGraphique(this);
+        moteurPhysique.run();
+        moteurGraphique.run();
     }
 
-    @Override
-    public void run() {
-        super.run();
-        moteurPhysique.start();
-        moteurGraphique.start();
-    }
 
     public MoteurPhysique getMoteurPhysique() {
         return moteurPhysique;

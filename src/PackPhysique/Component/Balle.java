@@ -6,39 +6,71 @@ import PackPhysique.Map;
 public class Balle extends Component {
 
     private static boolean isMovable = true;
-    private static boolean onHitComponentEvent = true;
+    private static boolean onHitComponentEvent = false;
+
+    private static double sizeX = 20;
+    private static double sizeY = 20;
 
 
-    public Balle(Map map, double x, double y, double sizeX, double sizeY, boolean isMovable, boolean onHitComponentEvent) {
+    public Balle(Map map, double x, double y) {
         super(map, x, y, sizeX, sizeY, isMovable, onHitComponentEvent);
     }
 
     @Override
     public void run(){
         super.run();
-        this.setVitesseY(-150);
+        this.setVitesseY(-300);
     }
 
     @Override
-    public void onStopXEvent(){
-        rebond();
+    public void onStopXEvent(Component component){
+        System.out.println("X");
+        if (component.getId() != this.getId()) {
+            if (component.getClass() == Brique.class) {
+                component.terminate();
+                getMap().deleteAComponent(component);
+                this.setVitesseY(this.getVitesseX()*-1.05);
+            } else if (component.getClass() == Raquette.class){
+                Raquette raquette = (Raquette)component;
+                double positionXBall = this.getX() + (this.getSizeX()/2);
+                double positionXRaquettte = raquette.getX() + (Raquette.getSizeX()/2);
+                double diferentielBallRaquette = positionXRaquettte - positionXBall;
+                double nouveauDifferancielleYX = diferentielBallRaquette / (Raquette.getSizeX()/2)*2;
+                this.setVitesseX(this.getVitesseY()*nouveauDifferancielleYX);
+            }
+            else {
+                this.setVitesseX(this.getVitesseX()*-1.05);
+            }
+        }
     }
     @Override
-    public void onStopYEvent(){
-        rebond();
+    public void onStopYEvent(Component component){
+        System.out.println("Y");
+        if (component.getId() != this.getId()) {
+            if (component.getClass() == Brique.class) {
+                component.terminate();
+                getMap().deleteAComponent(component);
+                this.setVitesseY(this.getVitesseY()*-1.05);
+            } else if (component.getClass() == Raquette.class){
+                this.setVitesseY(this.getVitesseY()*-1.05);
+                Raquette raquette = (Raquette)component;
+                double positionXBall = this.getX() + (this.getSizeX()/2);
+                double positionXRaquettte = raquette.getX() + (Raquette.getSizeX()/2);
+                double diferentielBallRaquette = positionXRaquettte - positionXBall;
+                double nouveauDifferancielleYX = diferentielBallRaquette / (Raquette.getSizeX()/2)*2;
+                this.setVitesseX(this.getVitesseY()*nouveauDifferancielleYX);
+            }
+            else {
+                this.setVitesseY(this.getVitesseY()*-1.05);
+            }
+        }
     }
-    @Override
-    public void onHitEvent(Component component){
-        component.terminate();
-        getMap().deleteAComponent(component);
+
+    public static double getSizeX() {
+        return sizeX;
     }
 
-    public void rebond(){
-        this.setVitesseX(this.getVitesseX()*-1);
-        this.setVitesseY(this.getVitesseY()*-1);
+    public static double getSizeY() {
+        return sizeY;
     }
-
-
-
-
 }

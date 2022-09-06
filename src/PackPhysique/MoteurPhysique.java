@@ -17,4 +17,12 @@ public class MoteurPhysique extends Thread{
         super.run();
         map.run();
     }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public RunGame getRunGame() {
+        return runGame;
+    }
 }

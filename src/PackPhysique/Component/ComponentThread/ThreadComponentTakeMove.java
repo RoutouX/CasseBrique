@@ -24,14 +24,14 @@ public class ThreadComponentTakeMove extends Thread{
                         if (component.getVitesseX() > 0) {
                             nextPositionX = mapComponent.getHitBox().getX() - component.getHitBox().getSizeX();
                             component.getHitBox().setX(nextPositionX);
-                            component.setVitesseX(0);
-                            component.onStopXEvent();
+                            //component.setVitesseX(0);
+                            component.onStopXEvent(mapComponent);
                             return;
                         } else {
                             nextPositionX = mapComponent.getHitBox().getX() + mapComponent.getHitBox().getSizeX();
                             component.getHitBox().setX(nextPositionX);
-                            component.setVitesseX(0);
-                            component.onStopXEvent();
+                            //component.setVitesseX(0);
+                            component.onStopXEvent(mapComponent);
                             return;
                         }
                     }
@@ -53,14 +53,14 @@ public class ThreadComponentTakeMove extends Thread{
                         if (component.getVitesseY() > 0) {
                             nextPositionY = mapComponent.getHitBox().getY() - component.getHitBox().getSizeY();
                             component.getHitBox().setY(nextPositionY);
-                            component.setVitesseY(0);
-                            component.onStopYEvent();
+                            //component.setVitesseY(0);
+                            component.onStopYEvent(mapComponent);
                             return;
                         } else {
                             nextPositionY = mapComponent.getHitBox().getY() + mapComponent.getHitBox().getSizeY();
                             component.getHitBox().setY(nextPositionY);
-                            component.setVitesseY(0);
-                            component.onStopYEvent();
+                            //component.setVitesseY(0);
+                            component.onStopYEvent(mapComponent);
                             return;
                         }
                     }

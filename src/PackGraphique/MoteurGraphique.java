@@ -17,6 +17,7 @@ public class MoteurGraphique extends Thread{
     @Override
     public void run() {
         super.run();
+        System.out.println("Run Moteur Graphique");
         Thread refraiche = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -32,6 +33,10 @@ public class MoteurGraphique extends Thread{
             }
         });
         refraiche.start();
+    }
+
+    public FenetreJFrame getFenetreJFrame() {
+        return fenetreJFrame;
     }
 
     public RunGame getRunGame() {

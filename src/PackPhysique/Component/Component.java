@@ -83,8 +83,8 @@ public class Component extends Thread{
     }
 
 
-    public void onStopXEvent(){}
-    public void onStopYEvent(){}
+    public void onStopXEvent(Component component){}
+    public void onStopYEvent(Component component){}
     public void onHitEvent(Component component){}
 
 

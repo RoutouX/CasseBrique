@@ -24,10 +24,12 @@ public class FenetreJFrame extends JFrame {
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        this.sizeXScreen = getWidth();
-        this.sizeYScreen = getHeight();
-
         this.setVisible(true);
+
+        Dimension dimension = getSize();
+        this.sizeXScreen = dimension.width;
+        this.sizeYScreen = dimension.height;
+        System.out.println(sizeXScreen);
     }
 
     public int getSizeXScreen() {
