@@ -24,7 +24,6 @@ public class Balle extends Component {
 
     @Override
     public void onStopXEvent(Component component){
-        System.out.println("X");
         if (component.getId() != this.getId()) {
             if (component.getClass() == Brique.class) {
                 component.terminate();
@@ -45,7 +44,6 @@ public class Balle extends Component {
     }
     @Override
     public void onStopYEvent(Component component){
-        System.out.println("Y");
         if (component.getId() != this.getId()) {
             if (component.getClass() == Brique.class) {
                 component.terminate();

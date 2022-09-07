@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="748e4330-40a0-4147-9e92-e7472d2fdb24" name="Changes" comment="StableV1">
-      <change afterPath="$PROJECT_DIR$/src/PackGraphique/Resource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PackGraphique/ResourceBackGround.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PackGraphique/ResourceBall.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PackGraphique/ResourceBrique.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PackGraphique/ResourceRaquette.java" afterDir="false" />
+    <list default="true" id="748e4330-40a0-4147-9e92-e7472d2fdb24" name="Changes" comment="First Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PackGraphique/FenetreJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackGraphique/FenetreJFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PackGraphique/GraphicsJPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackGraphique/GraphicsJPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PackGraphique/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackGraphique/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PackGraphique/ResourceBackGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackGraphique/ResourceBackGround.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PackPhysique/Component/Balle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Component/Balle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PackPhysique/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Map.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +79,7 @@
       <workItem from="1662474249029" duration="452000" />
       <workItem from="1662475230621" duration="14249000" />
       <workItem from="1662498345809" duration="265000" />
+      <workItem from="1662548749607" duration="1705000" />
     </task>
     <task id="LOCAL-00001" summary="StableV1">
       <created>1662495266992</created>

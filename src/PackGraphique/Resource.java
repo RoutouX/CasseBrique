@@ -15,11 +15,13 @@ public class Resource {
     private String pathForMyOs(String path){
         switch (System.getProperty("os.name")) {
             case "Linux":
-                path.replace("\\", "/");
+                path = path.replace('\\', '/');
                 break;
             case "Windows":
-                path.replace("/", "\\");
+                path = path.replace('/', '\\');
                 break;
+            default:
+                System.exit(1);
         }
         return path;
     }

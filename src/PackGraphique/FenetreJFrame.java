@@ -19,17 +19,39 @@ public class FenetreJFrame extends JFrame {
 
         this.add(graphicsJPanel);
 
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setUndecorated(true);
+        Dimension dimension;
+        switch (System.getProperty("os.name")) {
+            case "Linux":
+                this.setSize(new Dimension(1300, 700));
+                dimension = getSize();
+                this.sizeXScreen = dimension.width;
+                this.sizeYScreen = dimension.height;
 
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        this.setVisible(true);
+                this.setVisible(true);
 
-        Dimension dimension = getSize();
-        this.sizeXScreen = dimension.width;
-        this.sizeYScreen = dimension.height;
-        System.out.println(sizeXScreen);
+                break;
+            case "Windows":
+                this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                this.setUndecorated(true);
+
+                this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+                this.setVisible(true);
+
+
+                dimension = getSize();
+                this.sizeXScreen = dimension.width;
+                this.sizeYScreen = dimension.height;
+                break;
+            default:
+                System.out.println("Can't now OS");
+                System.exit(1);
+        }
+
+        System.out.println("Size screen X = " + sizeXScreen);
+        System.out.println("Size screen Y = " + sizeYScreen);
     }
 
     public int getSizeXScreen() {

@@ -19,15 +19,13 @@ public class Map extends Thread{
     public void run() {
         super.run();
         generateMap(36);
-        addNewComponent(new Balle(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - (Balle.getSizeX()/2), moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-100));
-        addNewComponent(new Raquette(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - Raquette.getSizeX()/2, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-30));
+        addNewComponent(new Balle(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - (Balle.getSizeX()/2), moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-200));
+        addNewComponent(new Raquette(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - Raquette.getSizeX()/2, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-100));
     }
 
     public void generateMap(int nombreBrique){
         int sizeXFenetre = moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen();
         int sizeYFenetre = moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen();
-
-        System.out.println(sizeXFenetre +  sizeYFenetre);
 
         int intSizeXBrique = (int)Brique.getSizeX();
         int intSizeYBrique = (int)Brique.getSizeY();
@@ -46,7 +44,6 @@ public class Map extends Thread{
         while (nbBriquepose < nombreBrique){
             for (int i = 0; ((i < maxbriquePerLine) && (nbBriquepose < nombreBrique)); i++){
                 addNewComponent(new Brique(this, positionXCurseur, positionYCureseur));
-                System.out.println("Nouvelle Brique X="+positionXCurseur+", Y="+positionYCureseur);
                 nbBriquepose++;
                 positionXCurseur = positionXCurseur + intSizeXBrique;
             }

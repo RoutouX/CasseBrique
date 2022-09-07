@@ -24,7 +24,7 @@ public class GraphicsJPanel extends JPanel {
             resourceBrique = new ResourceBrique();
             resourceRaquette = new ResourceRaquette();
         }catch (Exception e){
-            System.exit(130);
+            System.exit(131);
         }
     }
 
