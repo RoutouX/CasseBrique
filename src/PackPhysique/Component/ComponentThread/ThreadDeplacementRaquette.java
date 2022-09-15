@@ -23,6 +23,7 @@ public class ThreadDeplacementRaquette extends Thread{
                 throw new RuntimeException(e);
             }
             double mouseX = MouseInfo.getPointerInfo().getLocation().getX();
+            //System.out.println(mouseX);
             double newPosition = (mouseX - (Raquette.getSizeX()/2));
             raquette.getHitBox().setX(newPosition);
         }

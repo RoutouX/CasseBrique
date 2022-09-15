@@ -18,24 +18,30 @@ public class ThreadComponentTakeMove extends Thread{
             double nextPositionX;
             nextPositionX = component.getHitBox().getX() + (component.getVitesseX() * (speedLoop / 1000));
             HitBox nextHitBox = new HitBox(nextPositionX, component.getHitBox().getY(), component.getHitBox().getSizeX(), component.getHitBox().getSizeY());
-            for (Component mapComponent : components) {
-                if (component.getId() != mapComponent.getId()) {
-                    if (nextHitBox.isHit(mapComponent.getHitBox())) {
-                        if (component.getVitesseX() > 0) {
-                            nextPositionX = mapComponent.getHitBox().getX() - component.getHitBox().getSizeX();
-                            component.getHitBox().setX(nextPositionX);
-                            //component.setVitesseX(0);
-                            component.onStopXEvent(mapComponent);
-                            return;
-                        } else {
-                            nextPositionX = mapComponent.getHitBox().getX() + mapComponent.getHitBox().getSizeX();
-                            component.getHitBox().setX(nextPositionX);
-                            //component.setVitesseX(0);
-                            component.onStopXEvent(mapComponent);
-                            return;
+
+            //NullPointerException
+            try {
+                for (Component mapComponent : components) {
+                    if (component.getId() != mapComponent.getId()) {
+                        if (nextHitBox.isHit(mapComponent.getHitBox())) {
+                            if (component.getVitesseX() > 0) {
+                                nextPositionX = mapComponent.getHitBox().getX() - component.getHitBox().getSizeX();
+                                component.getHitBox().setX(nextPositionX);
+                                //component.setVitesseX(0);
+                                component.onStopXEvent(mapComponent);
+                                return;
+                            } else {
+                                nextPositionX = mapComponent.getHitBox().getX() + mapComponent.getHitBox().getSizeX();
+                                component.getHitBox().setX(nextPositionX);
+                                //component.setVitesseX(0);
+                                component.onStopXEvent(mapComponent);
+                                return;
+                            }
                         }
                     }
                 }
+            } catch (NullPointerException e){
+
             }
             component.getHitBox().setX(nextPositionX);
             return;
@@ -47,6 +53,8 @@ public class ThreadComponentTakeMove extends Thread{
             double nextPositionY;
             nextPositionY = component.getHitBox().getY() + (component.getVitesseY() * (speedLoop / 1000));
             HitBox nextHitBox = new HitBox(component.getHitBox().getX(), nextPositionY, component.getHitBox().getSizeX(), component.getHitBox().getSizeY());
+            //NullPointerException
+            try {
             for (Component mapComponent : components) {
                 if (mapComponent.getId() != component.getId()) {
                     if (nextHitBox.isHit(mapComponent.getHitBox())) {
@@ -65,6 +73,9 @@ public class ThreadComponentTakeMove extends Thread{
                         }
                     }
                 }
+            }
+            } catch (NullPointerException e){
+
             }
             component.getHitBox().setY(nextPositionY);
             return;

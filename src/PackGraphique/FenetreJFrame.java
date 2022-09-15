@@ -22,6 +22,7 @@ public class FenetreJFrame extends JFrame {
         Dimension dimension;
         switch (System.getProperty("os.name")) {
             case "Linux":
+                //Tol
                 this.setSize(new Dimension(1300, 700));
                 dimension = getSize();
                 this.sizeXScreen = dimension.width;

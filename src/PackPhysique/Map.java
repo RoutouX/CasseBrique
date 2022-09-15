@@ -8,6 +8,8 @@ public class Map extends Thread{
     private Component[] components;
     private int positionInListComponent;
 
+    private int nombreBrique = 36;
+
     private static int SIZE_LIST_COMPONENT = 1000;
 
     public Map(MoteurPhysique moteurPhysique) {
@@ -18,12 +20,12 @@ public class Map extends Thread{
     @Override
     public void run() {
         super.run();
-        generateMap(36);
+        generateMap();
         addNewComponent(new Balle(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - (Balle.getSizeX()/2), moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-200));
         addNewComponent(new Raquette(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - Raquette.getSizeX()/2, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-100));
     }
 
-    public void generateMap(int nombreBrique){
+    public void generateMap(){
         int sizeXFenetre = moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen();
         int sizeYFenetre = moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen();
 
@@ -33,6 +35,7 @@ public class Map extends Thread{
         addNewComponent(new Wall(this, -1, 0, 1, sizeYFenetre));//add leftWall
         addNewComponent(new Wall(this, sizeXFenetre, 0, 1, sizeYFenetre));//add rightWall
         addNewComponent(new Wall(this, 0, -1, sizeXFenetre, 1));//add topWall
+        addNewComponent(new Fall(this, 0, sizeYFenetre+1, sizeXFenetre, 1));//add bottomFall
 
         int maxbriquePerLine = (int)Math.ceil((sizeXFenetre / intSizeXBrique));
 
@@ -64,11 +67,37 @@ public class Map extends Thread{
             if (components[i] != null){
                 if (components[i].getId() == component.getId()){
                     components[i] = null;
-                    return;
+                    break;
                 }
             }
         }
-        System.out.println("Fail to delete the component");
+        if (checkWin()){
+            System.out.println("Win");
+            nombreBrique = nombreBrique + 9;
+            resetGame();
+        }
+    }
+
+    public boolean checkWin(){
+        for (int i=0; i<SIZE_LIST_COMPONENT;i++){
+            if (components[i] != null) {
+                if (components[i].getClass() == Brique.class) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+    public void deleteAllComponent(){
+        for (int i=0; i<SIZE_LIST_COMPONENT;i++){
+            try{
+                components[i].terminate();
+            }catch (Exception e){}
+            components[i] = null;
+        }
+        positionInListComponent = 0;
     }
 
     public Component[] getListComponent() {
@@ -87,5 +116,33 @@ public class Map extends Thread{
             }
         }
         return returnListComponent;
+    }
+
+    public void resetGame(){
+        deleteAllComponent();
+        generateMap();
+        addNewComponent(new Balle(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - (Balle.getSizeX()/2), moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-200));
+        addNewComponent(new Raquette(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - Raquette.getSizeX()/2, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-100));
+    }
+
+    public void resetGameIf0Balle(){
+        if (balleExist() == false){
+            resetGame();
+        }
+    }
+
+    public boolean balleExist(){
+        for (int i=0; i<SIZE_LIST_COMPONENT;i++){
+            if (components[i] != null) {
+                if (components[i].getClass() == Balle.class) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public MoteurPhysique getMoteurPhysique() {
+        return moteurPhysique;
     }
 }
