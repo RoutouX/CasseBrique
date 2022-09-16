@@ -14,6 +14,7 @@ public class RunGame extends Thread{
         moteurAudio = new MoteurAudio(this);
         moteurPhysique = new MoteurPhysique(this);
         moteurGraphique = new MoteurGraphique(this);
+        moteurAudio.playSound(MoteurAudio.SOUND_GAME_MUSIC);
         moteurPhysique.run();
         moteurGraphique.run();
     }

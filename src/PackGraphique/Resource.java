@@ -17,10 +17,11 @@ public class Resource {
             case "Linux":
                 path = path.replace('\\', '/');
                 break;
-            case "Windows":
+            case "Windows 10":
                 path = path.replace('/', '\\');
                 break;
             default:
+                System.out.println("2");
                 System.exit(1);
         }
         return path;

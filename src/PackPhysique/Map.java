@@ -1,5 +1,6 @@
 package PackPhysique;
 
+import MoteurSonor.MoteurAudio;
 import PackPhysique.Component.*;
 
 public class Map extends Thread{
@@ -8,7 +9,7 @@ public class Map extends Thread{
     private Component[] components;
     private int positionInListComponent;
 
-    private int nombreBrique = 36;
+    private int nombreBrique = 6;//36
 
     private static int SIZE_LIST_COMPONENT = 1000;
 
@@ -73,6 +74,7 @@ public class Map extends Thread{
         }
         if (checkWin()){
             System.out.println("Win");
+            moteurPhysique.getRunGame().getMoteurAudio().playSound(MoteurAudio.SOUND_GAME_YOU_WIN);
             nombreBrique = nombreBrique + 9;
             resetGame();
         }

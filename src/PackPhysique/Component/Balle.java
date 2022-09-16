@@ -1,5 +1,6 @@
 package PackPhysique.Component;
 
+import MoteurSonor.MoteurAudio;
 import PackPhysique.Component.Component;
 import PackPhysique.Map;
 
@@ -34,7 +35,7 @@ public class Balle extends Component {
 
     @Override
     public void onStopXEvent(Component component){
-        getMap().getMoteurPhysique().getRunGame().getMoteurAudio().playSoundBounds();
+        getMap().getMoteurPhysique().getRunGame().getMoteurAudio().playSound(MoteurAudio.SOUND_GAME_REBOND);
         if (component.getId() != this.getId()) {
             if (component.getClass() == Brique.class) {
                 onHitBriqueNewBall(component);
@@ -59,7 +60,7 @@ public class Balle extends Component {
     }
     @Override
     public void onStopYEvent(Component component){
-        getMap().getMoteurPhysique().getRunGame().getMoteurAudio().playSoundBounds();
+        getMap().getMoteurPhysique().getRunGame().getMoteurAudio().playSound(MoteurAudio.SOUND_GAME_REBOND);
         if (component.getId() != this.getId()) {
             if (component.getClass() == Brique.class) {
                 onHitBriqueNewBall(component);

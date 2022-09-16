@@ -33,7 +33,7 @@ public class FenetreJFrame extends JFrame {
                 this.setVisible(true);
 
                 break;
-            case "Windows":
+            case "Windows 10":
                 this.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 this.setUndecorated(true);
 
