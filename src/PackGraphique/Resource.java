@@ -21,7 +21,7 @@ public class Resource {
                 path = path.replace('/', '\\');
                 break;
             default:
-                System.out.println("2");
+                //System.out.println("2");
                 System.exit(1);
         }
         return path;

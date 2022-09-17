@@ -12,17 +12,36 @@ public class Balle extends Component {
     private static double sizeX = 20;
     private static double sizeY = 20;
 
-    private double firstVitesseX = -500;
+    private static double ratioRebond = 1.05;
 
+    private double firstVitesse = 500;
+    private Position firstDirection;
+
+
+    private boolean debug = false;
 
     public Balle(Map map, double x, double y) {
         super(map, x, y, sizeX, sizeY, isMovable, onHitComponentEvent);
-
+        firstDirection = new Position(0,-100);
     }
 
-    public Balle(Map map, double x, double y, double firstVitesseX) {
+    public Balle(Map map, double x, double y, boolean debug) {
         super(map, x, y, sizeX, sizeY, isMovable, onHitComponentEvent);
-        this.firstVitesseX = firstVitesseX;
+        firstDirection = new Position(0,-100);
+        this.debug = debug;
+    }
+
+    public Balle(Map map, double x, double y, double firstVitesse, Position firstDirection) {
+        super(map, x, y, sizeX, sizeY, isMovable, onHitComponentEvent);
+        this.firstVitesse = firstVitesse;
+        this.firstDirection = firstDirection;
+    }
+
+    public Balle(Map map, double x, double y, double firstVitesse, Position firstDirection, boolean debug) {
+        super(map, x, y, sizeX, sizeY, isMovable, onHitComponentEvent);
+        this.firstVitesse = firstVitesse;
+        this.firstDirection = firstDirection;
+        this.debug = debug;
     }
 
 
@@ -30,7 +49,8 @@ public class Balle extends Component {
     @Override
     public void run(){
         super.run();
-        this.setVitesseY(firstVitesseX);
+        this.getVitesse().setSpeed(firstVitesse);
+        this.getVitesse().setDirection(firstDirection);
     }
 
     @Override
@@ -41,20 +61,18 @@ public class Balle extends Component {
                 onHitBriqueNewBall(component);
                 component.terminate();
                 getMap().deleteAComponent(component);
-                this.setVitesseX(this.getVitesseX()*-1.00);
+                this.getVitesse().setSpeed(this.getVitesse().getSpeed()*ratioRebond);
+                this.getVitesse().inverseX();
             } else if (component.getClass() == Raquette.class){
-                Raquette raquette = (Raquette)component;
-                double positionXBall = this.getX() + (this.getSizeX()/2);
-                double positionXRaquettte = raquette.getX() + (Raquette.getSizeX()/2);
-                double diferentielBallRaquette = positionXRaquettte - positionXBall;
-                double nouveauDifferancielleYX = diferentielBallRaquette / (Raquette.getSizeX()/2)*2;
-                this.setVitesseX(this.getVitesseY()*nouveauDifferancielleYX);
+                this.getVitesse().inverseX();
             } else if (component.getClass() == Fall.class) {
                 getMap().deleteAComponent(this);
                 this.terminate();
                 getMap().resetGameIf0Balle();
             }else {
-                this.setVitesseX(this.getVitesseX()*-1.00);
+                //this.setVitesseX(this.getVitesseX()*-ratioRebond);
+                this.getVitesse().setSpeed(this.getVitesse().getSpeed()*ratioRebond);
+                this.getVitesse().inverseX();
             }
         }
     }
@@ -66,21 +84,33 @@ public class Balle extends Component {
                 onHitBriqueNewBall(component);
                 component.terminate();
                 getMap().deleteAComponent(component);
-                this.setVitesseY(this.getVitesseY()*-1.00);
+                this.getVitesse().setSpeed(this.getVitesse().getSpeed()*ratioRebond);
+                this.getVitesse().inverseY();
             } else if (component.getClass() == Raquette.class){
-                this.setVitesseY(this.getVitesseY()*-1.00);
+                this.getVitesse().setSpeed(this.getVitesse().getSpeed()*ratioRebond);
                 Raquette raquette = (Raquette)component;
                 double positionXBall = this.getX() + (this.getSizeX()/2);
                 double positionXRaquettte = raquette.getX() + (Raquette.getSizeX()/2);
                 double diferentielBallRaquette = positionXRaquettte - positionXBall;
                 double nouveauDifferancielleYX = diferentielBallRaquette / (Raquette.getSizeX()/2)*2;
-                this.setVitesseX(this.getVitesseY()*nouveauDifferancielleYX);
+                if (debug){
+                    System.out.println("Speed X = " + getVitesse().getSpeedX());
+                    System.out.println("Speed Y = " + getVitesse().getSpeedY());
+                    System.out.println("Speed = " + getVitesse().getSpeed());
+                }
+                this.getVitesse().setDirection(new Position(nouveauDifferancielleYX*-100, -100));
+                if (debug){
+                    System.out.println("Speed X = " + getVitesse().getSpeedX());
+                    System.out.println("Speed Y = " + getVitesse().getSpeedY());
+                    System.out.println("Speed = " + getVitesse().getSpeed());
+                }
             } else if (component.getClass() == Fall.class) {
                 getMap().deleteAComponent(this);
                 this.terminate();
                 getMap().resetGameIf0Balle();
             } else {
-                this.setVitesseY(this.getVitesseY()*-1.00);
+                this.getVitesse().setSpeed(this.getVitesse().getSpeed()*ratioRebond);
+                this.getVitesse().inverseY();
             }
         }
     }
@@ -92,7 +122,7 @@ public class Balle extends Component {
             double sX = component.getHitBox().getSizeX();
             double sY = component.getHitBox().getSizeY();
 
-            getMap().addNewComponent(new Balle(getMap(), (pX + sX/2), (pY+ sY/2), 500));
+            getMap().addNewComponent(new Balle(getMap(), (pX + sX/2), (pY+ sY/2), (400+100*getMap().getLevelGame()), new Position(0,-100)));
         }
     }
 

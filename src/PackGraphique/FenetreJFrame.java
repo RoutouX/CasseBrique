@@ -51,8 +51,8 @@ public class FenetreJFrame extends JFrame {
                 System.exit(1);
         }
 
-        System.out.println("Size screen X = " + sizeXScreen);
-        System.out.println("Size screen Y = " + sizeYScreen);
+        //System.out.println("Size screen X = " + sizeXScreen);
+        //System.out.println("Size screen Y = " + sizeYScreen);
     }
 
     public int getSizeXScreen() {

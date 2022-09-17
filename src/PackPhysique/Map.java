@@ -9,6 +9,8 @@ public class Map extends Thread{
     private Component[] components;
     private int positionInListComponent;
 
+    private int levelGame = 1;
+    private int nnombreBriqueBase = 6;
     private int nombreBrique = 6;//36
 
     private static int SIZE_LIST_COMPONENT = 1000;
@@ -22,7 +24,7 @@ public class Map extends Thread{
     public void run() {
         super.run();
         generateMap();
-        addNewComponent(new Balle(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - (Balle.getSizeX()/2), moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-200));
+        addNewComponent(new Balle(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - (Balle.getSizeX()/2), moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-200, (400+200*levelGame), new Position(0,-100)));
         addNewComponent(new Raquette(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - Raquette.getSizeX()/2, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-100));
     }
 
@@ -75,7 +77,8 @@ public class Map extends Thread{
         if (checkWin()){
             System.out.println("Win");
             moteurPhysique.getRunGame().getMoteurAudio().playSound(MoteurAudio.SOUND_GAME_YOU_WIN);
-            nombreBrique = nombreBrique + 9;
+            levelGame++;
+            nombreBrique = nnombreBriqueBase * levelGame;
             resetGame();
         }
     }
@@ -123,7 +126,7 @@ public class Map extends Thread{
     public void resetGame(){
         deleteAllComponent();
         generateMap();
-        addNewComponent(new Balle(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - (Balle.getSizeX()/2), moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-200));
+        addNewComponent(new Balle(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - (Balle.getSizeX()/2), moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-200, (400+200*levelGame), new Position(0,-100)));
         addNewComponent(new Raquette(this, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeXScreen()/2 - Raquette.getSizeX()/2, moteurPhysique.getRunGame().getMoteurGraphique().getFenetreJFrame().getSizeYScreen()-100));
     }
 
@@ -146,5 +149,17 @@ public class Map extends Thread{
 
     public MoteurPhysique getMoteurPhysique() {
         return moteurPhysique;
+    }
+
+    public int getLevelGame() {
+        return levelGame;
+    }
+
+    public int getNnombreBriqueBase() {
+        return nnombreBriqueBase;
+    }
+
+    public int getNombreBrique() {
+        return nombreBrique;
     }
 }

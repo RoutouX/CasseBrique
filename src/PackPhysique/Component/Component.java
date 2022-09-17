@@ -15,6 +15,8 @@ public class Component extends Thread{
     private double vitesseX = 0;    //  cm/s
     private double vitesseY = 0;    //  cm/s
 
+    private Vitesse vitesse;
+
 
     //Parametre
     private boolean isMovable = false;
@@ -34,6 +36,8 @@ public class Component extends Thread{
 
         this.isMovable = isMovable;
         this.onHitComponentEvent = onHitComponentEvent;
+
+        vitesse = new Vitesse(new Position(0, 0), 0);
     }
 
     @Override
@@ -93,22 +97,15 @@ public class Component extends Thread{
         return g;
     }
 
-    public void setVitesseX(double vitesseX) {
-        this.vitesseX = vitesseX;
-    }
-
-    public void setVitesseY(double vitesseY) {
-        this.vitesseY = vitesseY;
-    }
-
     public double getVitesseX() {
-        return vitesseX;
+        return vitesse.getSpeedX();
     }
 
     public double getVitesseY() {
-        return vitesseY;
+        return vitesse.getSpeedY();
     }
 
+    public Vitesse getVitesse(){return vitesse;}
     public double getX(){
         return hitBox.getX();
     }
