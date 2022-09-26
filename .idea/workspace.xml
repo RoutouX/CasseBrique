@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="748e4330-40a0-4147-9e92-e7472d2fdb24" name="Changes" comment="Stable add asset">
-      <change afterPath="$PROJECT_DIR$/src/PackPhysique/Component/Vitesse.java" afterDir="false" />
+    <list default="true" id="748e4330-40a0-4147-9e92-e7472d2fdb24" name="Changes" comment="Vitesse stable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainPack/RunGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPack/RunGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MoteurSonor/MoteurAudio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MoteurSonor/MoteurAudio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackGraphique/FenetreJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackGraphique/FenetreJFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackGraphique/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackGraphique/Resource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PackPhysique/Component/Balle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Component/Balle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PackPhysique/Component/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Component/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PackPhysique/Component/ComponentThread/ThreadComponentOnHitComponentEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Component/ComponentThread/ThreadComponentOnHitComponentEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PackPhysique/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PackPhysique/MoteurPhysique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PackPhysique/MoteurPhysique.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,19 +37,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/thoms/IdeaProjects/CasseBrique/src/PackPhysique/Component/ComponentThread&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/thoms/IdeaProjects/CasseBrique/src/PackPhysique/Component/ComponentThread",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.editor.code.editing"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/PackPhysique/Component/ComponentThread" />
@@ -101,7 +101,10 @@
       <workItem from="1663277737315" duration="6388000" />
       <workItem from="1663349213138" duration="13406000" />
       <workItem from="1663414466083" duration="214000" />
-      <workItem from="1663419931863" duration="11000" />
+      <workItem from="1663419931863" duration="218000" />
+      <workItem from="1663448750797" duration="318000" />
+      <workItem from="1663552748156" duration="633000" />
+      <workItem from="1664153141011" duration="9393000" />
     </task>
     <task id="LOCAL-00001" summary="StableV1">
       <created>1662495266992</created>
@@ -124,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663306275090</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Vitesse stable">
+      <created>1663420094483</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1663420094483</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +156,8 @@
     <MESSAGE value="StableV1" />
     <MESSAGE value="Ajout compatibilité linux" />
     <MESSAGE value="Stable add asset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stable add asset" />
+    <MESSAGE value="Vitesse stable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vitesse stable" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
