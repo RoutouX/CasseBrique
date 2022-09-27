@@ -5,14 +5,26 @@ import PackPhysique.Component.HitBox;
 
 public class ThreadComponentTakeMove extends Thread{
 
-    private Component component;
-    private boolean running = true;
-    private static double speedLoop = 5; //ms
+    private Component component;/** Le composent a qui appartien le thread */
+    private boolean running = true;/** boolean qui permet l'arret de la boucle */
+    private static double speedLoop = 5;/** Delay entre chaque occurance de la boucle (ms) */
 
+
+    /**
+     *      ThreadComponentTakeMove
+     * @param component on envoie le composent qui ce deplace en x/y
+     *
+     * On recupere une referance vers l'object qui ce deplace
+     */
     public ThreadComponentTakeMove(Component component) {
         this.component = component;
     }
 
+
+    /**
+     *      deplacementX
+     * @param components
+     */
     public void deplacementX(Component[] components) {
         if (component.getVitesseX() != 0) {
             double nextPositionX;
